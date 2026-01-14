@@ -1,5 +1,8 @@
 import string
 import secrets
+from datetime import date
+import math
+
 
 def print_menu():
     """
@@ -135,6 +138,37 @@ def calculate_formate_percentage():
     print(f"result: {percent:.2f}")
 
 
+def days_until_july_4_2025():
+    today = date.today()
+    target = date(2025, 7, 4)
+
+    delta = target - today
+    print(f"Days until July 4, 2025: {delta.days}")
+
+
+def calc_volume_right_circular_cylinder():
+    """
+    Calculates the volume of a right circular cylinder.
+    Prompts the user for radius and height and validates input.
+    """
+    while True:
+        try:
+            radius = float(input("Enter the radius of the cylinder: "))
+            height = float(input("Enter the height of the cylinder: "))
+
+            if radius <= 0 or height <= 0:
+                print("Radius and height must be positive numbers.")
+                continue
+
+            volume = math.pi * (radius ** 2) * height
+            print(f"Volume of the right circular cylinder: {volume:.2f}")
+
+            return
+
+        except ValueError:
+            print("Invalid input. Please enter numeric values only.")
+
+
 def main():
     """
     Main entry point
@@ -153,11 +187,11 @@ def main():
             case "B":
                 calculate_formate_percentage()
             case "C":
-                print("Placeholder for option C")
+                days_until_july_4_2025()
             case "D":
                 print("Placeholder for option D")
             case "E":
-                print("Placeholder for option E")
+                calc_volume_right_circular_cylinder()
             case "F":
                 print("Exiting program...")
                 return
